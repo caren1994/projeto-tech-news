@@ -33,18 +33,18 @@ def scrape_updates(html_content):
 # Requisito 3
 def scrape_next_page_link(html_content):
     soup = BeautifulSoup(html_content, "html.parser")
-    father = soup.find("navigator", class_="navigation pagination")
-    print(father)
-    children = father.find("a", class_="next page-numbers").get("href")
+    # father = soup.find("nav", class_="navigation pagination")
+    # print(father)
+    children = soup.find("a", class_="next page-numbers")
     print(children)
     if children:
-        return children
+        return children.get("href")
     return None
 
 
 # Requisito 4
 def scrape_news(html_content):
-    """Seu código deve vir aqui"""
+
 
 
 # Requisito 5
