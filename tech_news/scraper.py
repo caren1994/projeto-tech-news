@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+# from parsel import Selector
 import time
 
 HEADERS = {"user-agent": "Fake user-agent"}
@@ -44,7 +45,36 @@ def scrape_next_page_link(html_content):
 
 # Requisito 4
 def scrape_news(html_content):
+    news = {}
+    soup = BeautifulSoup(html_content, "html.parser")
+    # selector = Selector(html_content)
+    # selector para utilização do parsel
+    h = soup.head
+    news["url"] = h.find("link", {"rel": "canonical"}).get("href")
+    news["title"] = soup.find("h1", class_="entry-title").text.strip()
+    news["timestamp"] = soup.find("li", class_="meta-date").text
+    news["writer"] = soup.find("span", class_="author").text
+    news["reading_time"] = int(
+        soup.find("li", class_="meta-reading-time").text.split(" ")[0]
+    )
+    news["summary"] = soup.find("div", class_="entry-content").p.text.strip()
 
+    # news["summary"] = selector.xpath(
+    #     "string(//div[@class='entry-content']/p[1])").get().strip()
+    # // pega do nível inteiro para buscar a classe faz [@class=]
+    # o / pega o filho e pegamos o primeiro p com p[1]
+
+    # não sei fazer o reading-time e o sumary ver na instrução amanha
+    news["category"] = soup.find("span", class_="label").text
+
+    print(news)
+    return news
+
+
+#  get sempre tem que receber um parametro
+# olhar keywordsarguments
+# s.strip(): retorna a string resultante após a remoção do início
+# e do final da string s de todos os caracteres em BRANCO;
 
 
 # Requisito 5
