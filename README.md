@@ -9,6 +9,15 @@ Este é um projeto que visa fornecer uma solução para consultas de notícias s
 - Consultas interativas: O projeto disponibiliza um terminal interativo do Python para realizar consultas específicas nas notícias coletadas.
 - Modularidade: O código é estruturado em módulos, permitindo a reutilização em outros projetos e facilitando a manutenção.
 
+## Tecnologias
+Este projeto foi desenvolvido usando as seguintes tecnologias:
+
+-  **Python**;
+-  **Pytest**;
+-  **BeautifulSoup**;
+-  **Git**;
+-  **Visual Studio Code**.
+
 ## Como usar
 Para testar este projeto, precisará das seguintes ferramentas instaladas:
 
