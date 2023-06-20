@@ -28,7 +28,7 @@ Para testar este projeto, precisará das seguintes ferramentas instaladas:
 
 ```bash
 # Clone ou baixe o repositório
-git clone https://github.com/vinibortoletto/tech-news.git
+git clone git@github.com:caren1994/projeto-tech-news.git
 
 # Entre no diretório
 cd tech-news
